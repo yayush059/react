@@ -4,6 +4,18 @@
 3. []()  
 4. []()  
 
+# Summary of React Hooks
+
+- **`useState`**: Adds state to functional components.
+- **`useEffect`**: Handles side effects and lifecycle events.
+- **`useContext`**: Accesses context values.
+- **`useReducer`**: Manages more complex state logic.
+- **`useRef`**: Accesses DOM elements or stores mutable values.
+- **`useMemo`**: Memoizes expensive computations.
+- **`useCallback`**: Memoizes callback functions.
+- **Custom Hooks**: Encapsulates reusable logic.
+
+
 
 test
 
@@ -33,3 +45,4 @@ installing mantime(color components ke liye) library which is similar to shadcn 
 (install --save-dev postcss postcss-preset-mantine postcss-simple-vars)
 
 https://react-khaki-ten.vercel.app/
+
