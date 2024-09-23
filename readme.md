@@ -19,3 +19,9 @@ npx tailwindcss init -p
 4 -> change content in tailwind config file
 5 -> add decorators in index.css
 
+AiCalculator Project
+using shadcn component library in our project (npx shadcn-ui init)
+installing react-router-dom to manage application routes (npm i react-router-dom)
+installing mantime(color components ke liye) library which is similar to shadcn (npm install @mantine/core @mantine/hooks)
+(install --save-dev postcss postcss-preset-mantine postcss-simple-vars)
+
