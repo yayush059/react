@@ -4,6 +4,21 @@
 3. []()  
 4. []()  
 
+# What are Hooks?
+
+Hooks are functions introduced in React 16.8 that allow you to use state and other React features in functional components. They enable developers to manage local component state, handle side effects, and utilize lifecycle methods without the need for class components. Hooks provide a more direct API to the React concepts you already know (state, lifecycle, context, etc.), making functional components more powerful and easier to work with.
+
+## Key Benefits of Hooks
+
+- **Simplified Logic**: Hooks enable you to organize logic in a more manageable way without the complexity of class components.
+- **Reusability**: You can create custom hooks to encapsulate and reuse stateful logic across components.
+- **No Class Syntax**: Hooks allow you to use state and other features without writing class-based components, leading to cleaner and more concise code.
+
+### Commonly Used Hooks
+
+Some of the most commonly used hooks include `useState`, `useEffect`, `useContext`, `useReducer`, `useRef`, `useMemo`, `useCallback`, and custom hooks.
+
+
 # Summary of React Hooks
 
 - **`useState`**: Adds state to functional components.
