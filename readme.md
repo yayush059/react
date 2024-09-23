@@ -1,3 +1,5 @@
+PROJECT LINKS
+PASSWORD GENERATOR: https://react-khaki-ten.vercel.app/
 test
 
 CREATING NEW REACT PROJECT
@@ -25,3 +27,4 @@ installing react-router-dom to manage application routes (npm i react-router-dom
 installing mantime(color components ke liye) library which is similar to shadcn (npm install @mantine/core @mantine/hooks)
 (install --save-dev postcss postcss-preset-mantine postcss-simple-vars)
 
+https://react-khaki-ten.vercel.app/
