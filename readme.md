@@ -1,5 +1,6 @@
 # PROJECT LINKS 
-[PASSWORD GENERATOR](https://react-khaki-ten.vercel.app/)
+[PASSWORD GENERATOR](https://react-khaki-ten.vercel.app/)  
+
 test
 
 CREATING NEW REACT PROJECT
