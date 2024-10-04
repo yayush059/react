@@ -4,10 +4,9 @@ import Navbar from '../components/Navbar'
 import "../App.css"
 function Main() {
   return (
-    <div>
+    <div className='bg-prigmayBG'>
         <Navbar/>
-        <Outlet></Outlet>
-        <footer>footer</footer>
+        <Outlet/>
     </div>
   )
 }
