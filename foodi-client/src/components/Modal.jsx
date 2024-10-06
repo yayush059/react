@@ -57,7 +57,7 @@ const Modal = () => {
                 type="submit"
                 value="Login"
                 className="btn bg-green text-white border-green"
-                Login
+                login
               />
             </div>
             <p className="text-center my-2">
