@@ -2,6 +2,7 @@ import React from "react";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Modal from "./Modal";
 const Signup = () => {
   const {
     register,
@@ -17,7 +18,7 @@ const Signup = () => {
           method="dialog"
           className="card-body"
         >
-          <h3 className="font-bold text-lg">Create Accpunt</h3>
+          <h3 className="font-bold text-lg">Create Account</h3>
           <div className="form-control">
             {/* email */}
             <label className="label">
@@ -40,7 +41,6 @@ const Signup = () => {
               type="password"
               placeholder="password"
               className="input input-bordered bg-white"
-              required
               {...register("password")}
             />
             <label className="label">
@@ -61,10 +61,18 @@ const Signup = () => {
           </div>
           <p className="text-center my-2">
             Have an account?{" "}
-            <button>
-                Login
+            <button
+              onClick={() => document.getElementById("my_modal_3").showModal()}
+              className="underline text-green ml-1"
+            >
+              Login
             </button>{" "}
           </p>
+          <Link to="/"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
+              ✕
+            </Link>
         </form>
         <div className="text-center justify-center space-x-3 mb-5">
           <button className="btn btn-circle bg-gray-200 hover:bg-green hover:border-green border-white">
@@ -77,6 +85,7 @@ const Signup = () => {
             <FaGithub />
           </button>
         </div>
+        <Modal />
       </div>
     </div>
   );
