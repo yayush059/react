@@ -3,6 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{html,js}',
   ],
   theme: {
     extend: {
@@ -14,6 +15,5 @@ export default {
       }
     },
   },
-  plugins: [require('daisyui')],
+  plugins: [require("daisyui")],
 }
-

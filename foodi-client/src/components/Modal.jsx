@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const Modal = () => {
   const {
@@ -9,7 +10,37 @@ const Modal = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+
+  const { signUpWithGmail } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
+  
+  const onSubmit = (data) => {
+    const email = data.email;
+    const password = data.password;
+    // console.log(email,password)
+    login(email,password).then((result)=>{
+      const user = result.user;
+      alert("Login Successfull!!");
+    })
+    .catch((error)=>{
+      const errorMessage = error.message
+      setErrorMessage("Provide a correct email and password!")
+    })
+  };
+
+  //google signin
+  const handleLogin = () => {
+    signUpWithGmail()
+      .then((result) => {
+        const user = result.user;
+        alert("Login Successfull!!");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div>
       <dialog id="my_modal_3" className="modal modal-middle sm:modal-middle">
@@ -50,14 +81,18 @@ const Modal = () => {
                 </a>
               </label>
             </div>
+
             {/* error text */}
+            {
+              errorMessage ? <p className="text-red text-xs italic">{setErrorMessage} </p>  : ""
+            }
+
             {/* login button */}
             <div className="form-control mt-6">
               <input
                 type="submit"
                 value="Login"
                 className="btn bg-green text-white border-green"
-                login
               />
             </div>
             <p className="text-center my-2">
@@ -74,8 +109,13 @@ const Modal = () => {
               ✕
             </button>
           </form>
+
+          {/* social signin */}
           <div className="text-center justify-center space-x-3 mb-5">
-            <button className="btn btn-circle bg-gray-200 hover:bg-green hover:border-green border-white">
+            <button
+              onClick={handleLogin}
+              className="btn btn-circle bg-gray-200 hover:bg-green hover:border-green border-white"
+            >
               <FaGoogle />
             </button>
             <button className="btn btn-circle bg-gray-200 hover:bg-green hover:border-green border-white">
