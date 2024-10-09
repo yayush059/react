@@ -3,12 +3,13 @@ import logo from "/logo.png";
 import { FaRegUser } from "react-icons/fa";
 import Modal from "./Modal";
 import { AuthContext } from "../contexts/AuthProvider";
+import Profile from "./Profile";
 
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
 
-  const {user} = useContext(AuthContext);
-  console.log(user)
+  const { user } = useContext(AuthContext);
+  console.log(user);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,9 +38,9 @@ const Navbar = () => {
       <li tabIndex={0}>
         <details>
           <summary>Menu</summary>
-          <ul className="p-2">
+          <ul className="p-2 bg-gray-200">
             <li>
-              <a href="/menu">All</a>
+              <a href="/menu" className="">All</a>
             </li>
             <li>
               <a>Salad</a>
@@ -53,7 +54,7 @@ const Navbar = () => {
       <li tabIndex={0}>
         <details>
           <summary>Services</summary>
-          <ul className="p-2">
+          <ul className="p-2 bg-gray-200">
             <li>
               <a>Online Order</a>
             </li>
@@ -156,23 +157,25 @@ const Navbar = () => {
 
           {/* login btn */}
 
-          <button
+          {/* <button
             onClick={() => document.getElementById("my_modal_3").showModal()}
             className="btn flex items-center gap-2 rounded-full px-6 bg-green border-green text-white"
           >
             <FaRegUser />Login
           </button>
-          <Modal/>
-          {/* {
-          user? <Profile user={user}/> :  <button
-          onClick={() => document.getElementById("my_modal_5").showModal()}
-          className="btn flex items-center gap-2 rounded-full px-6 bg-green text-white"
-        >
-          <FaRegUser /> Login
-        </button>
-         } */}
+          <Modal/> */}
+          {user ? (
+            <Profile user={user} />
+          ) : (
+            <button
+              onClick={() => document.getElementById("my_modal_3").showModal()}
+              className="btn flex items-center gap-2 rounded-full px-6 bg-green text-white border-green"
+            >
+              <FaRegUser /> Login
+            </button>
+          )}
 
-          {/* <Modal/> */}
+          <Modal />
         </div>
       </div>
     </header>

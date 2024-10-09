@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../contexts/AuthProvider";
-
 const Modal = () => {
   const {
     register,
@@ -11,17 +10,23 @@ const Modal = () => {
     formState: { errors },
   } = useForm();
 
-
-  const { signUpWithGmail } = useContext(AuthContext);
+  const { signUpWithGmail, login } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
   
+  //redirecting to home page or specific page
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
     // console.log(email,password)
-    login(email,password).then((result)=>{
+    login(email, password).then((result)=>{
       const user = result.user;
       alert("Login Successfull!!");
+      document.getElementById("my_modal_3").close()
+      navigate(from,{replace: true})
     })
     .catch((error)=>{
       const errorMessage = error.message
@@ -35,6 +40,7 @@ const Modal = () => {
       .then((result) => {
         const user = result.user;
         alert("Login Successfull!!");
+        navigate(from, {replace:true})
       })
       .catch((error) => {
         console.log(error);
@@ -51,8 +57,8 @@ const Modal = () => {
             className="card-body"
           >
             <h3 className="font-bold text-lg">Please Login!</h3>
+            {/* email */}
             <div className="form-control">
-              {/* email */}
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
@@ -84,7 +90,7 @@ const Modal = () => {
 
             {/* error text */}
             {
-              errorMessage ? <p className="text-red text-xs italic">{setErrorMessage} </p>  : ""
+              errorMessage ? <p className="text-red text-xs italic">{errorMessage} </p>  : ""
             }
 
             {/* login button */}
@@ -99,7 +105,7 @@ const Modal = () => {
               Don' t have an account?{" "}
               <Link to="/signup" className="underline text-green ml-1">
                 Signup Now
-              </Link>
+              </Link>{" "}
             </p>
             <button
               htmlFor="my_modal_3"
